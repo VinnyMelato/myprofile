@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-hs=q4vj5aeb_+#cv7=&gt=_59(ybxx98nl^*9s^4ube60(lq6^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['VincentMelato.pythonanywhere.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -114,11 +114,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
+import os
+
+# ... (other settings like DEBUG, ALLOWED_HOSTS, etc.)
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / "portfolio/static",
-]
+STATICFILES_DIRS = [BASE_DIR / 'portfolio/static']  # Where your static files are during development
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # Where collected static files will be stored
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
