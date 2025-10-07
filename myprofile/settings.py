@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,10 +22,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-hs=q4vj5aeb_+#cv7=&gt=_59(ybxx98nl^*9s^4ube60(lq6^'
+# Read SECRET_KEY and DEBUG from the environment so they can be set on PythonAnywhere
+# and other hosts without changing source. Falls back to the existing hardcoded
+# value for local development.
+SECRET_KEY = config('SECRET_KEY', default='django-insecure-hs=q4vj5aeb_+#cv7=>_59(ybxx98nl^*9s^4ube60(lq6^')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = ['VincentMelato.pythonanywhere.com', '127.0.0.1', 'localhost']
 
