@@ -12,10 +12,10 @@
         <div class="container">
             <h1>Vincent Melato</h1>
             <p>Specialist in Django, Python, HTML & CSS</p>
-            <!-- Resume download button -->
+            <!-- Resume view button (links to resume page) -->
             <p>
-                <a class="btn btn-resume" href="{% static 'portfolio/resume.pdf' %}" target="_blank" rel="noopener noreferrer" download>
-                    Download Resume
+                <a class="btn btn-resume" href="{% url 'resume' %}">
+                    View Resume
                 </a>
             </p>
             <nav>
