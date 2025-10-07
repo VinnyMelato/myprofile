@@ -177,3 +177,21 @@ footer {
         height: 120px;
     }
 }
+
+/* Resume button */
+.btn-resume {
+    display: inline-block;
+    background: #ffffff;
+    color: #007bff;
+    border: 2px solid #007bff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-resume:hover {
+    background: #007bff;
+    color: #fff;
+}
