@@ -10,3 +10,8 @@ def home(request):
     else:
         form = ContactForm()
     return render(request, 'portfolio/home.html', {'form': form})
+
+
+def resume(request):
+    """Render a digitized HTML resume page which also embeds the downloadable PDF."""
+    return render(request, 'portfolio/resume.html')
