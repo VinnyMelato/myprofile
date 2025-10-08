@@ -1,5 +1,11 @@
 from django.shortcuts import render
 from .forms import ContactForm
+from django.conf import settings
+from pathlib import Path
+try:
+    import markdown
+except Exception:
+    markdown = None
 
 def home(request):
     if request.method == 'POST':
@@ -13,5 +19,18 @@ def home(request):
 
 
 def resume(request):
-    """Render a digitized HTML resume page which also embeds the downloadable PDF."""
-    return render(request, 'portfolio/resume.html')
+    """Render a digitized HTML resume page from Markdown source and also embed the PDF if present."""
+    md_path = Path(settings.BASE_DIR) / 'portfolio' / 'content' / 'resume.md'
+    resume_html = ''
+    if md_path.exists() and markdown is not None:
+        try:
+            md_text = md_path.read_text(encoding='utf-8')
+            resume_html = markdown.markdown(md_text, extensions=['extra', 'smarty'])
+        except Exception:
+            resume_html = '<p>Unable to render resume markdown.</p>'
+    elif md_path.exists() and markdown is None:
+        resume_html = '<p>Markdown library not installed on the server. Install `Markdown` to enable rendered resume.</p>'
+    else:
+        resume_html = ''
+
+    return render(request, 'portfolio/resume.html', {'resume_html': resume_html})
