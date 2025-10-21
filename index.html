@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vincent Melato - Django & Python Specialist</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="{% static 'portfolio/styles.css' %}">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Vincent Melato</h1>
+            <p>Specialist in Django, Python, HTML & CSS</p>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I'm a passionate developer specializing in building robust web applications with Django and Python. With expertise in HTML and CSS, I create clean, responsive designs that enhance user experience. Let's build something amazing!</p>
+            <!-- Add a photo: <img src="{% static 'portfolio/your-photo.jpg' %}" alt="Your Photo"> -->
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li>Django: Backend framework for scalable apps</li>
+                <li>Python: Core programming for logic and automation</li>
+                <li>HTML: Semantic structure for web pages</li>
+                <li>CSS: Styling for modern, responsive designs</li>
+                <!-- Add more as needed -->
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project">
+                    <h3>Project 1: Taxi App</h3>
+                    <p>Built with Django, featuring user auth and payments.</p>
+                    <a href="https://link-to-project.com" target="_blank">View Project</a>
+                </div>
+                <div class="project">
+                    <h3>Project 2: </h3>
+                    <p>Python-powered with custom CSS themes.</p>
+                    <a href="https://link-to-project.com" target="_blank">View Project</a>
+                </div>
+                <!-- Add more projects -->
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Send</button>
+            </form>
+            <p>Email: vinnymelato@gmail.com | LinkedIn: www.linkedin.com/in/vincent-melato-6b20a4229</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Vincent Melato. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
